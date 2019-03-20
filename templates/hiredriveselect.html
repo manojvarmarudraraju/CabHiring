@@ -1,0 +1,66 @@
+
+{% include 'base.html' %}
+<h3>HIRE CAR</h3>
+
+<style>
+
+    .one {
+    width: 20%;
+
+    float: left;
+}
+.two {
+
+    width: 18%;
+
+    float: left;
+}
+</style>
+
+{% for i in q %}
+<div class="container-fluid">
+    <div class="w-75 p-3" style="background-color: #eee; height: 50px;border-style:dashed;">
+            <div class="one"  ><h5>{{i.CarCompany}}</h5></div>
+          <div class="two"><h5>{{i.CarName}}</h5></div>
+          <div class="two"><h5>{{i.CarCapacity}}</h5></div>
+            <div class="two"><h5>{{i.Cartype}}</h5></div>
+            <a href="{% url 'hbookcar' i.HcarRegistration%}" style="float: right;margin-top: 5px;">View--></a>
+        </div>
+</div>
+{% endfor %}
+{% for i in w %}
+<div class="container-fluid">
+    <div class="w-75 p-3" style="background-color: #eee; height: 50px;border-style:dashed;">
+            <div class="one"  ><h5>{{i.CarCompany}}</h5></div>
+          <div class="two"><h5>{{i.CarName}}</h5></div>
+          <div class="two"><h5>{{i.CarCapacity}}</h5></div>
+            <div class="two"><h5>{{i.Cartype}}</h5></div>
+            <a href="{% url 'hbookcar' i.HcarRegistration%}" style="float: right;margin-top: 5px;">View--></a>
+        </div>
+</div>
+{% endfor %}
+{% for i in e %}
+<div class="container-fluid">
+    <div class="w-75 p-3" style="background-color: #eee; height: 50px;border-style:dashed;">
+            <div class="one"  ><h5>{{i.CarCompany}}</h5></div>
+          <div class="two"><h5>{{i.CarName}}</h5></div>
+          <div class="two"><h5>{{i.CarCapacity}}</h5></div>
+            <div class="two"><h5>{{i.Cartype}}</h5></div>
+            <a href="{% url 'hbookcar' i.HcarRegistration%}" style="float: right;margin-top: 5px;">View--></a>
+        </div>
+</div>
+{% endfor %}
+{% for i in r %}
+<div class="container-fluid">
+    <div class="w-75 p-3" style="background-color: #eee; height: 50px;border-style:dashed;">
+            <div class="one"  ><h5>{{i.CarCompany}}</h5></div>
+          <div class="two"><h5>{{i.CarName}}</h5></div>
+          <div class="two"><h5>{{i.CarCapacity}}</h5></div>
+            <div class="two"><h5>{{i.Cartype}}</h5></div>
+            <a href="{% url 'hbookcar' i.HcarRegistration%}" style="float: right;margin-top: 5px;">View--></a>
+        </div>
+</div>
+{% endfor %}
+
+
+{% include 'footer.html' %}

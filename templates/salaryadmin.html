@@ -1,0 +1,115 @@
+{% include 'adminbase.html' %}
+<style>
+/* -------------------- Page Styles (not required) */
+
+
+
+.styled-select {
+   background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;
+   height: 29px;
+   overflow: hidden;
+   width: 240px;
+}
+
+.styled-select select {
+   background: transparent;
+   border: none;
+   font-size: 14px;
+   height: 29px;
+   padding: 5px; 
+   width: 268px;
+}
+
+
+
+
+.semi-square {
+   -webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+   border-radius: 5px;
+}
+
+
+
+.blue    { background-color: #3b8ec2; }
+.yellow  { background-color: #eec111; }
+
+
+
+
+.blue select    { color: black; }
+
+.butn {
+  border: none; 
+  color: white; 
+  padding: 14px 28px; 
+  cursor: pointer; 
+  margin-left: 60px;
+}
+
+.butn {background-color: #eec111;} /* Orange */
+.butn:hover {background: #3b8ec2;}
+
+.container{
+
+    align-self: center;
+    align-items: center;
+}
+
+
+
+
+</style>
+</head>     
+
+<body style="background-color: grey;">
+
+
+
+<div class="container">
+    
+
+
+<form method="POST" style="height: 400px;width: 400px;align-items: center;align-items: center;" id='form'>
+{% csrf_token %}
+  Year:<br>
+  <div class="styled-select yellow semi-square" style="margin: 20px; " >
+  <select name="year">
+    <option value="2019">2019</option>
+    <option value="2020">2020</option>
+    <option value="2021">2021</option>
+    <option value="2022">2022</option>
+    <option value="2023">2023</option>
+    <option value="2024">2024</option>
+    <option value="2025">2025</option>
+  </select>>
+</div>
+  
+  <br>
+  Month:<br>
+  <div class="styled-select yellow semi-square"  >
+  <select name="month">
+    <option value="January">JANUARY</option>
+    <option value="February">FEBRUARY</option>
+    <option value="March">MARCH</option>
+    <option value="April">APRIL</option>
+    <option value="May">MAY</option>
+    <option value="June">JUNE</option>
+    <option value="July">JULY</option>
+    <option value="August">AUGUST</option>
+    <option value="September">SEPTEMBER</option>
+    <option value="October">OCTOBER</option>
+    <option value="November">NOVEMBER</option>
+    <option value="December">DECEMBER</option>
+  </select>
+</div>
+  
+  <br><br>
+  <input type="submit" class="butn" value="Submit" >
+</form> 
+</div>
+
+
+
+
+{% include 'footer.html' %}

@@ -1,0 +1,119 @@
+{% include 'adminbase.html' %}
+<h3>Set Price</h3>
+<style>
+
+    .one {
+    width: 20%;
+
+    float: left;
+}
+.two {
+
+    width: 18%;
+
+    float: left;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+
+</head>
+<body>
+
+<form  method="POST" class="form-horizontal" id="form" >
+	
+	<h3>Self drive</h3>
+<table>
+  <tr>
+    <th>Car Type</th>
+    <th>Price</th>
+	
+  </tr>
+
+  <tr>
+    <td>Sedan</td>
+	<td><input style="border:none" type="text" name="selfsedanprice" size="15" ></td>
+	
+	</tr>
+
+	<tr>
+    <td>Micro</td>
+	<td><input style="border:none" type="text" name="selfmicroprice" size="15" ></td>
+	
+	</tr>
+
+	<tr>
+    <td>Hatchback</td>
+	<td><input style="border:none" type="text" name="selfhatchbackprice" size="15" ></td>
+	
+	</tr>
+
+	<tr>
+    <td>Suv</td>
+	<td><input style="border:none" type="text" name="selfsuvprice" size="15" ></td>
+	
+	</tr>
+	
+	
+	
+	
+	
+</table>
+
+
+<h3>Hires</h3>
+<table>
+  <tr>
+    <th>Car Type</th>
+    <th>Price</th>
+	
+  </tr>
+
+  <tr>
+    <td>Sedan</td>
+	<td><input style="border:none" type="text" name="hiresedanprice" size="15" ></td>
+	
+	</tr>
+
+	<tr>
+    <td>Micro</td>
+	<td><input style="border:none" type="text" name="hiremicroprice" size="15" ></td>
+	
+	</tr>
+
+	<tr>
+    <td>Hatchback</td>
+	<td><input style="border:none" type="text" name="hirehatchbackprice" size="15" ></td>
+	
+	</tr>
+
+	<tr>
+    <td>Suv</td>
+	<td><input style="border:none" type="text" name="hiresuvprice" size="15" ></td>
+	
+	</tr>
+	
+	
+	
+	
+	
+</table>
+
+<input  type="submit"  size="15"  style="align-content: center;">
+</form>
+
+{% include 'footer.html' %}	

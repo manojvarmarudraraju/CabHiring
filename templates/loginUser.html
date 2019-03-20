@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+<body>
+<style>
+#login{ background: linear-gradient( #000099, #66c2ff, #ffcccc);
+  height:50%;
+  justify-content:center;
+  padding:10%;
+}
+#content{
+  width:100%;
+  height:100vh;
+background:lightblue;
+  font-family:tahoma;
+  font-size:60px;
+align-items:center;
+  display:flex;
+  justify-content:center;
+}
+#main{background:lightgray;
+height:350px;
+  border:gray 2px solid;
+  padding:25px;
+  border-radius:10px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+#main:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+#w1{position:absolute;
+  top:20%;
+left:35%;}
+#w2{position:absolute;
+  top:40%;
+left:10%;}
+#w3{position:absolute;
+  top:3%;
+left:50%;}
+#w4{position:absolute;
+  top:30%;
+left:80%;}
+#w5{position:absolute;
+  top:80%;
+left:30%;}
+#w6{position:absolute;
+  top:70%;
+left:75%;}
+
+#head{font:40px tahoma;
+text-align:center;}
+#btn{box-shadow:2px 2px 2px 2px gray;}
+#btn:hover {
+    animation-name:cust;
+    animation-duration: 2s;
+  animation-fill-mode: forwards;
+  }
+@keyframes cust{
+  100%{background-color:darkblue;}
+}
+small{animation-name:fade;
+animation-iteration-count:infinite;
+}
+#w1 small{animation-duration:5s;}
+#w2 small{animation-duration:6s;}
+#w3 small{animation-duration:7s;}
+#w4 small{animation-duration:8s;}
+#w5 small{animation-duration:9s;}
+#w6 small{animation-duration:10s;}
+@keyframes fade{
+  25% {
+  opacity:0.5;
+  }
+  40% {
+  opacity:0.7;
+  }
+  60% {
+  opacity:0.9;
+    color:lightblue;
+  }
+}
+</style>
+<script>
+</script>
+<div id="content">
+  <h1 id="w1"><small>book</small></h1>
+  <h1 id="w2"><small>cabs</small></h1>
+  <h1 id="w3"><small>self drive</small></h1>
+  <h1 id="w4"><small>cancel</small></h1>
+<div id="header">
+  Hire a CAB
+  </div>
+  </div>
+<div class="container-fluid" id="login">
+  <div class="col-md-4">
+    </div>
+  <div class="col-md-4" id="main">
+       <form method="POST">
+           {% csrf_token %}
+       <div class="form-group" id="head">
+      Login
+      </div>
+  <div class="form-group">
+    <label for="uname">Username:</label>
+    <input type="text" class="form-control" id="uname" placeholder="PhoneNo or mailid" maxlength="12" name="username">
+  </div>
+  <div class="form-group">
+    <label for="pwd">Password:</label>
+    <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password">
+  </div>
+  <button type="submit" class="btn btn-primary" id="btn" >Submit</button>
+</form>
+  </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,83 @@
+{% include 'base.html' %}
+<h3>Self Drive Bookings</h3>
+<style>
+
+    .one {
+    width: 20%;
+
+    float: left;
+}
+.two {
+
+    width: 18%;
+
+    float: left;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+
+</head>
+<body>
+
+
+<table>
+  <tr>
+    <th></th>
+    <th>second</th>
+	<th>third</th>
+	<th>fourth</th>
+    <th></th>
+    <th></th>
+  </tr>
+  <tr>
+  	
+  	<h1>Upcomings</h1>
+  </tr>
+  {% for i in q %}
+  <tr>
+    <td>{{i.CarCompany}}</td>
+	<td>{{i.CarName}}</td>
+	<td>{{i.CarCapacity}}</td>
+	<td>{{i.Cartype}}</td>
+	<td><a href="{% url '' i.%}" style="float: right;margin-top: 5px;">CANCEL</a></td>
+	<td><a href="{% url '' i.%}" style="float: right;margin-top: 5px;">EDIT</a></td>
+	</tr>
+	{% endfor %}
+
+	<tr>
+		
+
+		<h1>Completed</h1>
+	</tr>
+	{% for i in w %}
+  <tr>
+    <td>{{i.CarCompany}}</td>
+	<td>{{i.CarName}}</td>
+	<td>{{i.CarCapacity}}</td>
+	<td>{{i.Cartype}}</td>
+	
+	<td><a href="{% url 'hbookcar' i.HcarRegistration%}" style="float: right;margin-top: 5px;">EDIT</a></td>
+	<td> </td>
+	</tr>
+	{% endfor %}
+	
+	
+	
+</table>
+
+{% include 'footer.html' %}	

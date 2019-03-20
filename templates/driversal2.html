@@ -1,0 +1,59 @@
+{% include 'driverbase.html' %}
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+</style>
+</head>
+<body>
+
+<h2 style="text-align: center;">Cab Hiring</h2>
+<p>--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
+
+
+<table style="width: 75%;margin-left: auto;margin-right: auto;transform: scale(1.0);">
+  
+  <tr>
+    <td>Account Number
+
+      <h1>{{n.AccountNo}}</h1>
+
+    </td>
+    <td>Ifsc Code
+
+      <h1>{{n.IfscCode}}</h1>
+
+    </td>
+    
+  </tr>
+  <tr>
+
+    <td>Amount
+      <h1>{{q.Salary}}</h1>
+
+    </td>
+    <td>Month
+      <h1>{{q.month}}</h1>
+
+    </td>
+    
+  </tr>
+  <tr>
+    <td>Year
+      <h1>{{q.year}}</h1>
+
+    </td>
+    <td></td>
+    
+  </tr>
+  
+</table>
+
+{% include 'footer.html' %}
