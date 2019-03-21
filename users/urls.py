@@ -15,4 +15,10 @@ path('hbookcar/<registration>',views.hbookcar,name='hbookcar'),
 path('Userlogout/',views.Userlogout,name='Userlogout'),
 path('Selfviewbookings/',views.Selfviewbookings,name='Selfviewbookings'),
 path('Hireviewbookings/',views.Hireviewbookings,name='Hireviewbookings'),
+path('selfcancelbooking/<bookid>',views.selfcancelbooking,name='selfcancelbooking'),
+path('editselfbooking/<bookid>',views.editselfbooking,name='editselfbooking'),
+path('edithirebooking/<bookid>',views.edithirebooking,name='edithirebooking'),
+path('hirecancelbooking/<bookid>',views.hirecancelbooking,name='hirecancelbooking'),
+path('selfcarrating/<bookid>',views.selfcarrating,'selfcarrating'),
+path('hirecarrating/<bookid>',views.hirecarrating,'hirecarrating')
         ]

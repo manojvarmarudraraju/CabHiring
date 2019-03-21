@@ -1,5 +1,5 @@
 {% include 'base.html' %}
-<h3>Self Drive Bookings</h3>
+<h3>Hired Bookings</h3>
 <style>
 
     .one {
@@ -38,30 +38,30 @@ th {
 <table>
   <tr>
     <th>Date</th>
-    <th>Days</th>
+    <th>Time</th>
 	<th>Pickup</th>
 	<th>Cost</th>
 	  <th></th>
 		<th></th>
   </tr>
   <tr>
-  	
+
   	<h1>Upcomings</h1>
   </tr>
   {% for i in q %}
   <tr>
-    <td>{{i.bookingdate}}</td>
-	<td>{{i.Days}}</td>
-	<td>{{i.pickup}}</td>
+    <td>{{i.Date}}</td>
+	<td>{{i.Time}}</td>
+	<td>{{i.Pickup}}</td>
 	<td>{{i.ActualPrice}}</td>
-	<td><a href="{% url 'selfcancelbooking' i.id%}" style="float: right;margin-top: 5px;">CANCEL</a></td>
-	<td><a href="{% url 'editselfbooking' i.id%}" style="float: right;margin-top: 5px;">EDIT</a></td>
+	<td><a href="{% url 'hirecancelbooking' i.id%}" style="float: right;margin-top: 5px;">CANCEL</a></td>
+	<td><a href="{% url 'edithirebooking' i.id%}" style="float: right;margin-top: 5px;">EDIT</a></td>
 	</tr>
 	{% endfor %}
 
-	
-	
-	
+
+
+
 </table>
 
 <h1>completed</h1>
@@ -69,7 +69,7 @@ th {
 <table>
   <tr>
     <th>Date</th>
-    <th>Days</th>
+    <th>Time</th>
 	<th>Pickup</th>
 	<th>Cost</th>
 	  <th></th>
@@ -80,9 +80,9 @@ th {
 
 	{% for i in w %}
   <tr>
-    <td>{{i.bookingdate}}</td>
-	<td>{{i.Days}}</td>
-	<td>{{i.pickup}}</td>
+    <td>{{i.Date}}</td>
+	<td>{{i.Time}}</td>
+	<td>{{i.Pickup}}</td>
 	<td>{{i.ActualPrice}}</td>
 	  <td></td>
 	  <td></td>
@@ -93,4 +93,4 @@ th {
 
 </table>
 
-{% include 'footer.html' %}	
+{% include 'footer.html' %} 

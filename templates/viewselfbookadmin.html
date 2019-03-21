@@ -1,0 +1,60 @@
+{% include 'adminbase.html' %}
+<h3> View Self Bookings</h3>
+<style>
+
+    .one {
+    width: 20%;
+
+    float: left;
+}
+.two {
+
+    width: 18%;
+
+    float: left;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+
+</head>
+<body>
+
+
+<table>
+  <tr>
+    <th>First Name</th>
+    <th>Pickup Address</th>
+	<th>Time</th>
+	<th>Cost</th>
+    <th></th>
+  </tr>
+  {% for i in q %}
+  <tr>
+    <td>{{i.firstname}}</td>
+	<td>{{i.address}}</td>
+	<td>{{i.time}}</td>
+	<td>{{i.cost}}</td>
+	<td><a href="{% url 'hbookcar' i.HcarRegistration%}" style="float: right;margin-top: 5px;">CANCEL</a></td>
+	</tr>
+	{% endfor %}
+	
+	
+	
+</table>
+
+{% include 'footer.html' %}	

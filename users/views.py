@@ -67,6 +67,7 @@ def UserDetailsView(request):
     n = userdb.objects.get(mobileno=phone)
     return render(request,'UserDetailsUpdation.html',{'n':n},{})
 
+@login_required
 def UpdateDetails(request):
     if request.method=='POST':
         phone = request.user.username
@@ -140,15 +141,16 @@ def hbookcar(request,registration):
         phone = request.user.username
         n = userdb.objects.get(mobileno=phone)
         pickup=request.POST['pickup']
+        date=request.POST['date']
         time=request.POST['time']
         q = HiredCar.objects.get(HcarRegistration=registration)
         q.status = 1
         q.save()
-        e=drivercar.objects.get(Carid_id=registration)
-        driverid=e.Ownerid_id
-        w=HiredCar(Driverid=driverid,Userid=n.mobileno,Date=time,Pickup=pickup)
+        e=drivercar.objects.get(car_id=registration)
+        driverid=e.driver_id
+        w=HiringCar(Driverid=driverid,Userid=n.mobileno,Date=date,Time=time,Pickup=pickup)
         w.save()
-        return redirect('UserHome')
+        return redirect(UserHome)
     else:
         phone = request.user.username
         n = userdb.objects.get(mobileno=phone)

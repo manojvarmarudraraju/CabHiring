@@ -180,12 +180,12 @@ def setprices(request):
 def selfbookings(request):
     phone = request.user.username
     n = admindb.objects.get(mobileno=phone)
-    sb=SelfBooking.objects.filter(status="upcoming")
+    sb=SelfBooking.objects.filter(status="upcoming").order_by('Userid')
     return render(request,'viewselfbookadmin.html',{'n':n,'sb':sb})
-def selfbookings(request):
+def hirebookings(request):
     phone = request.user.username
     n = admindb.objects.get(mobileno=phone)
-    sb=HiringCar.objects.filter(status="upcoming")
+    sb=HiringCar.objects.filter(status="upcoming").order_by('Userid')
     return render(request,'viewselfbookadmin.html',{'n':n,'sb':sb})
 def cancelself(request,bookid):
     sc=SelfBooking.objects.filter(id=bookid)
