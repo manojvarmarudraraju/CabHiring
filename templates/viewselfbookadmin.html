@@ -34,27 +34,84 @@ th {
 </head>
 <body>
 
-
+<h3>Upcoming</h3>
 <table>
   <tr>
-    <th>First Name</th>
-    <th>Pickup Address</th>
-	<th>Time</th>
+      <th>User</th>
+    <th>Date</th>
+    <th>Days</th>
+	<th>Pickup</th>
 	<th>Cost</th>
-    <th></th>
+	  <th></th>
+	  <th></th>
+	  <th></th>
+	  <th></th>
+	  <th></th>
+	  <th></th>
+	  <th></th>
+	  <th></th>
+	  <th></th>
+
   </tr>
-  {% for i in q %}
+
+
+
+	{% for i in sb %}
   <tr>
-    <td>{{i.firstname}}</td>
-	<td>{{i.address}}</td>
-	<td>{{i.time}}</td>
-	<td>{{i.cost}}</td>
-	<td><a href="{% url 'hbookcar' i.HcarRegistration%}" style="float: right;margin-top: 5px;">CANCEL</a></td>
+      <td>{{i.Userid}}</td>
+    <td>{{i.bookingdate}}</td>
+	<td>{{i.Days}}</td>
+	<td>{{i.pickup}}</td>
+	<td>{{i.ActualPrice}}</td>
+	  <td></td>
+	  <td></td>
+	  <td></td>
+	  <td></td>
+	  <td></td>
+	  <td></td>
+	  <td></td>
+	  <td><a href="{% url 'cancelself' i.id%}" style="float: right;margin-top: 5px;">cancel</a></td>
+	  <td><a href="{% url 'selfviewbooking' i.id%}" style="float: right;margin-top: 5px;">view</a></td>
 	</tr>
 	{% endfor %}
-	
-	
-	
+
+
+
 </table>
+<h3>Completed</h3>
+<table>
+  <tr>
+      <th>User</th>
+    <th>Date</th>
+    <th>Days</th>
+	<th>Pickup</th>
+	<th>Cost</th>
+	  <th></th>
+	  <th></th>
+	  <th></th>
+	  <th></th>
+
+  </tr>
+
+
+
+	{% for i in sh %}
+  <tr>
+      <td>{{i.Userid}}</td>
+    <td>{{i.bookingdate}}</td>
+	<td>{{i.Days}}</td>
+	<td>{{i.pickup}}</td>
+	<td>{{i.ActualPrice}}</td>
+	  <td></td>
+	  <td></td>
+	  <td><a href="{% url 'selfviewbooking' i.id%}" style="float: right;margin-top: 5px;">view</a></td>
+	  <td></td>
+	</tr>
+	{% endfor %}
+
+
+
+</table>
+
 
 {% include 'footer.html' %}	

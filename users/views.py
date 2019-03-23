@@ -39,7 +39,7 @@ def UserRegister(request):
             #to_list = [email]
             #send_mail(subject, message, from_mail, to_list, fail_silently=True)
             login(request, user)
-            return redirect('Userhome')
+            return redirect('Userhome',foo='bar')
     else:
         form=UserForm()
     return render(request,'registerUser1.html',{'form':form})
@@ -59,7 +59,7 @@ def UserLogin(request):
 
 def Userlogout(request):
     logout(request)
-    return redirect('UserLogin')
+    return redirect(UserLogin)
 
 def UserDetailsView(request):
 
@@ -77,7 +77,7 @@ def UpdateDetails(request):
         n.pincode = request.POST['pin']
         n.email = request.POST['email']
         n.save()
-        return redirect(UserDetailsView)
+        return redirect('UserDetailsView')
     else:
         return HttpResponse('Details Updated')
 
@@ -131,7 +131,7 @@ def sbookcar(request,carid):
         n = userdb.objects.get(mobileno=phone)
     return render(request,'selfbook.html',{'q':q,'n':n})
 
-def UserHome(request):
+def Userhome(request):
     phone = request.user.username
     n = userdb.objects.get(mobileno=phone)
     return render(request,'userhome.html',{'n':n})
@@ -150,7 +150,7 @@ def hbookcar(request,registration):
         driverid=e.driver_id
         w=HiringCar(Driverid=driverid,Userid=n.mobileno,Date=date,Time=time,Pickup=pickup)
         w.save()
-        return redirect(UserHome)
+        return redirect('Userhome')
     else:
         phone = request.user.username
         n = userdb.objects.get(mobileno=phone)
@@ -238,7 +238,7 @@ def selfcarrating(request,bookid):
         q.DamageCost=request.POST['damagecost']
         q.rated=1
         q.save()
-        return redirect("UserHome")
+        return redirect('Userhome')
     else:
         phone = request.user.username
         n = userdb.objects.get(mobileno=phone)
@@ -256,7 +256,7 @@ def hirecarrating(request,bookid):
         q.DamageCost = request.POST['damagecost']
         q.rated=1
         q.save()
-        return redirect("UserHome")
+        return redirect('Userhome')
     else:
         phone = request.user.username
         n = userdb.objects.get(mobileno=phone)

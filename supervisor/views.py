@@ -181,12 +181,13 @@ def selfbookings(request):
     phone = request.user.username
     n = admindb.objects.get(mobileno=phone)
     sb=SelfBooking.objects.filter(status="upcoming").order_by('Userid')
-    return render(request,'viewselfbookadmin.html',{'n':n,'sb':sb})
+    sh = SelfBooking.objects.filter(status="completed").order_by('Userid')
+    return render(request,'viewselfbookadmin.html',{'n':n,'sb':sb,'sb2':sh})
 def hirebookings(request):
     phone = request.user.username
     n = admindb.objects.get(mobileno=phone)
-    sb=HiringCar.objects.filter(status="upcoming").order_by('Userid')
-    return render(request,'viewselfbookadmin.html',{'n':n,'sb':sb})
+    hb=HiringCar.objects.filter(status="upcoming").order_by('Userid')
+    return render(request,'viewhirebookadmin.html',{'n':n,'hb':hb})
 def cancelself(request,bookid):
     sc=SelfBooking.objects.filter(id=bookid)
     sc.delete()
@@ -194,8 +195,8 @@ def cancelself(request,bookid):
 def cancelhire(request,bookid):
     sc=HiringCar.objects.filter(id=bookid)
     sc.delete()
-    return redirect('selfbookings')
-def maintainenceself(request):
+    return redirect('hirebookings')
+def maintanenceself(request):
     phone = request.user.username
     n = admindb.objects.get(mobileno=phone)
     r=Maintanencecost.objects.filter(type="self")
@@ -251,12 +252,19 @@ def driverratings(request):
     y = Maintanencecost.objects.filter(type="self").order_by('rating')
     return render(request, 'driverrating.html', {'y': y,'n':n})
 
-def removedriver(request,carid):
-    HiringCar.objects.filter(Carid=carid).delete()
-    HireCancelrepo.objects.filter(Carid=carid).delete()
-    d=drivercar.objects.get(CarReg=carid)
+def removedriver(request,driverid):
+    HiringCar.objects.filter(Carid=driverid).delete()
+    HireCancelrepo.objects.filter(Carid=driverid).delete()
+    d=drivercar.objects.get(CarReg=driverid)
     did=d.driver_id
-    drivercar.objects.filter(CarReg=carid).delete()
-    HiredCar.objects.filter(HcarRegistration=carid)
+    drivercar.objects.filter(CarReg=driverid).delete()
+    HiredCar.objects.filter(HcarRegistration=driverid).delete()
     Driverdb.objects.filter(mobileno=did).delete()
     return redirect('AdminHome')
+
+def selfviewbooking(request,bookid):
+    sc = SelfBooking.objects.get(id=bookid)
+    return render(request,'test.html',{'sc':sc})
+def hireviewbooking(request,bookid):
+    sc = HiringCar.objects.get(id=bookid)
+    return render(request,'test.html',{'sc':sc})

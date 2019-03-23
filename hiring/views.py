@@ -71,4 +71,4 @@ def maintanence(request):
     p=drivercar.objects.get(driver_id=phone)
     r = Maintanencecost.objects.filter(type="hire")
 
-    return render(request, 'test.html', {'y': y, 'n': n})
+    return render(request, 'test.html', { 'n': n})
