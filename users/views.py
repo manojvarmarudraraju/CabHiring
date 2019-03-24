@@ -184,7 +184,7 @@ def editselfbooking(request,bookid):
     else:
         phone = request.user.username
         n = userdb.objects.get(mobileno=phone)
-        q = SelfBooking.objects.filter(id=bookid)
+        q = SelfBooking.objects.get(id=bookid)
         return render(request,'editselfbooking.html',{'n':n,'q':q})
 
 def edithirebooking(request,bookid):
@@ -195,15 +195,15 @@ def edithirebooking(request,bookid):
         q.save()
         return redirect('Hireviewbookings')
     else:
-        q = HiringCar.objects.filter(id=bookid)
+        q = HiringCar.objects.get(id=bookid)
         phone = request.user.username
         n = userdb.objects.get(mobileno=phone)
         return render(request, 'edithirebooking.html', {'n': n,'q':q})
 
 def selfcancelbooking(request,bookid):
     if request.method=="POST":
-        q=SelfBooking.objects.filter(id=bookid)
-        w=SelfCancelrepo(bookid=bookid,reason=request.POST['reason'],Driverid=q.Driverid,Userid=q.Userid,bookingdate=q.bookingdate)
+        q=SelfBooking.objects.get(id=bookid)
+        w=SelfCancelrepo(bookid=bookid,reason=request.POST['reason'],Carid=q.Carid,Userid=q.Userid,bookingdate=q.bookingdate)
         w.save()
         q.delete()
         return redirect('Selfviewbookings')
@@ -215,7 +215,7 @@ def selfcancelbooking(request,bookid):
 
 def hirecancelbooking(request,bookid):
     if request.method=="POST":
-        q=HiringCar.objects.filter(id=bookid)
+        q=HiringCar.objects.get(id=bookid)
         w=HireCancelrepo(bookid=bookid,reason=request.POST['reason'],Driverid=q.Driverid,Userid=q.Userid)
         w.save()
         q.delete()

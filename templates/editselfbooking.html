@@ -36,31 +36,42 @@ th {
 
 
 <table>
-  
+
+<form class="form" id="form" method="POST">
+{% csrf_token %}
 
   <tr>
     <td>Address</td>
 	<td><input style="border:none" type="text" name="address" size="15" value={{q.pickup}}></td>
-	
+
 	</tr>
 
 	<tr>
     <td>Date</td>
-	<td><input  type="Date" name="date" size="15" value={{i.time}} ></td>
-	
+	<td><input  type="Date" name="date" size="15" value={{q.time}} ></td>
+
 	</tr>
 
 	<tr>
     <td>Time</td>
-	<td><input style="border:none" type="text" name="time" size="15" value={{i.ti}}></td>
-	
+	<td><input style="border:none" type="text" name="time" size="15" value={{q.ti}}></td>
+
 	</tr>
 
 	<tr>
     <td>Days</td>
-	<td><input style="border:none" type="text" name="days" size="15" value={{i.days}}></td>
-	
+	<td><input style="border:none" type="text" name="days" size="15" value={{q.Days}}></td>
+
 	</tr>
+
+	<tr>
+
+
+		<td><button class="btn" type="submit">Submit</button></td>
+	</tr>
+
+
+</form>
 
 	
 	

@@ -39,19 +39,19 @@ th {
 
 <table>
   
-<form class="form1" id="form" method="POST">
-{% csrf_token %}s
+<form class="form" id="form" method="POST">
+{% csrf_token %}
   <tr>
     <td>Address</td>
-	<td><input style="border:none" class= "input1"  type="text" name="address" size="15" value="{{i.address}} "></td>
-	
+	<td><input style="border:none" class= "input1"  type="text" name="address" size="15" value={{q.Pickup}}></td>
+
 	</tr>
 
-	
+
 
 	<tr>
     <td>Time</td>
-	<td><input style="border:none" class= "input1" type="text" name="time" size="15" value="{{i.time}}"></td>
+	<td><input style="border:none" class= "input1" type="text" name="time" size="15" value={{q.time}}></td>
 	
 	</tr>
 

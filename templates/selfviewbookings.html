@@ -85,7 +85,7 @@ th {
 	<td>{{i.pickup}}</td>
 	<td>{{i.ActualPrice}}</td>
 	  <td></td>
-	  <td></td>
+	  <td><a href="{% url 'selfcarrating' i.id%}" style="float: right;margin-top: 5px;">rate</a></td>
 	</tr>
 	{% endfor %}
 
