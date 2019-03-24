@@ -174,7 +174,7 @@ def Hireviewbookings(request):
 
 def editselfbooking(request,bookid):
     if request.method=="POST":
-        q = SelfBooking.objects.filter(id=bookid)
+        q = SelfBooking.objects.get(id=bookid)
         q.pickup = request.POST['address']
         q.time = request.POST['date']
         q.ti = request.POST['time']
@@ -189,7 +189,7 @@ def editselfbooking(request,bookid):
 
 def edithirebooking(request,bookid):
     if request.method=="POST":
-        q=HiringCar.objects.filter(id=bookid)
+        q=HiringCar.objects.get(id=bookid)
         q.Pickup=request.POST['address']
         q.time=request.POST['time']
         q.save()
@@ -229,13 +229,11 @@ def hirecancelbooking(request,bookid):
 
 def selfcarrating(request,bookid):
     if request.method=="POST":
-        q = SelfBooking.objects.filter(id=bookid)
+        q = SelfBooking.objects.get(id=bookid)
         q.ServiceRating=request.POST['servicerat']
         q.ServiceDesc=request.POST['servicedesc']
         q.CarRating=request.POST['carrating']
         q.CarDesc=request.POST['cardesc']
-        q.Damage=request.POST['damage']
-        q.DamageCost=request.POST['damagecost']
         q.rated=1
         q.save()
         return redirect('Userhome')
@@ -252,8 +250,6 @@ def hirecarrating(request,bookid):
         q.DriverDesc=request.POST['driverdesc']
         q.ServiceRating = request.POST['servicerat']
         q.ServiceDesc = request.POST['servicedesc']
-        q.Damage = request.POST['damage']
-        q.DamageCost = request.POST['damagecost']
         q.rated=1
         q.save()
         return redirect('Userhome')

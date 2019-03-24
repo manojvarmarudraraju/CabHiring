@@ -17,6 +17,7 @@ class Driverdb(models.Model):
     BaseSalary=models.IntegerField(default=0)
     AccountNo=models.CharField(default='',max_length=10)
     IfscCode=models.CharField(default='',max_length=12)
+    rating=models.IntegerField(default=0)
 
 
 

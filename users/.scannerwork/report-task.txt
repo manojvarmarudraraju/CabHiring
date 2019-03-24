@@ -1,0 +1,6 @@
+projectKey=mytoken1
+serverUrl=http://localhost:9000
+serverVersion=7.6.0.21501
+dashboardUrl=http://localhost:9000/dashboard?id=mytoken1
+ceTaskId=AWmuizQ7L3o_fstO7eW9
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AWmuizQ7L3o_fstO7eW9

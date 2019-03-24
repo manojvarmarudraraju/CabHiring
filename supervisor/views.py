@@ -148,27 +148,35 @@ def adminupdatedetails(request):
 def setprices(request):
     if request.method=="POST":
         w=SelfDriveCar.objects.all()
+        u=request.POST['selfsedanprice']
+        v=request.POST['selfmicroprice']
+        x=request.POST['selfsuvprice']
+        y=request.POST['selfhatchbackprice']
         for i in w:
-            if i.Cartype=="sedan":
-                i.ExpectedPrice=request.POST['selfsedanprice']
-            elif i.Cartype=="micro":
-                i.ExpectedPrice = request.POST['selfmicroprice']
-            elif i.Cartype=="hatchback":
-                i.ExpectedPrice = request.POST['selfhatchbackprice']
-            elif i.Cartype=="suv":
-                i.ExpectedPrice = request.POST['selfsuvprice']
-            i.save()
+            reg=i.CarRegistration
+            a=SelfDriveCar.objects.get(CarRegistration=reg)
+            if a.Cartype=="sedan":
+                a.ExpectedPrice= int(u)
+            elif a.Cartype=="micro":
+                a.ExpectedPrice = int(v)
+            elif a.Cartype=="hatchback":
+                a.ExpectedPrice = int(y)
+            elif a.Cartype=="suv":
+                a.ExpectedPrice = int(x)
+            a.save(['ExpectedPrice'])
         e=HiredCar.objects.all()
         for i in e:
-            if i.Cartype=="sedan":
-                i.Costperkilometer=request.POST['hiresedanprice']
-            elif i.Cartype=="micro":
-                i.Costperkilometer = request.POST['hiremicroprice']
-            elif i.Cartype=="hatchback":
-                i.Costperkilometer = request.POST['hirehatchbackprice']
-            elif i.Cartype=="suv":
-                i.Costperkilometer = request.POST['hiresuvprice']
-            i.save()
+            reg=i.HcarRegistration
+            b=HiredCar.objects.get(HcarRegistration=reg)
+            if b.Cartype=="sedan":
+                b.Costperkilometer=int(request.POST['hiresedanprice'])
+            elif b.Cartype=="micro":
+                b.Costperkilometer = int(request.POST['hiremicroprice'])
+            elif b.Cartype=="hatchback":
+                b.Costperkilometer = int(request.POST['hirehatchbackprice'])
+            elif b.Cartype=="suv":
+                b.Costperkilometer = int(request.POST['hiresuvprice'])
+            b.save(['CostperKilometer'])
         return redirect("AdminHome")
     else:
         phone = request.user.username
@@ -210,7 +218,7 @@ def maintanenceself(request):
         a.cost=total
         a.save()
     y = Maintanencecost.objects.filter(type="self").order_by('cost')
-    return render(request,'maintainenceself.html',{'y':y,'n':n})
+    return render(request,'maintanenceself.html',{'y':y,'n':n})
 
 def maintanencehire(request):
     phone = request.user.username
@@ -227,14 +235,15 @@ def maintanencehire(request):
         a.cost = total
         a.save()
     y = Maintanencecost.objects.filter(type="hire").order_by('cost')
-    return render(request, 'test.html',{'y':y,'n':n})
+    return render(request, 'maintanencehire.html',{'y':y,'n':n})
 
 def deleteselfcar(request,carid):
     SelfBooking.objects.filter(Carid=carid).delete()
     SelfCancelrepo.objects.filter(Carid=carid).delete()
     SelfDriveCar.objects.filter(CarRegistration=carid).delete()
     SelfDriveMaintanence.objects.filter(CarReg=carid)
-    return redirect('AdminHome')
+    Maintanencecost.objects.get(carid=carid).delete()
+    return redirect('maintanenceself')
 
 def driverratings(request):
     phone = request.user.username
@@ -242,24 +251,37 @@ def driverratings(request):
     r = Maintanencecost.objects.filter(type="hire")
     for i in r:
         carid = i.carid
-        q = HiringCar.objects.filter(Carid=carid)
+        p=drivercar.objects.get(car_id=carid)
+        driver=p.driver_id
+        q = HiringCar.objects.filter(Driverid=driver)
         total = 0
+        i=0
         for p in q:
             total = total + p.DriverRating
+            i+=1
         a = Maintanencecost.objects.get(carid=carid)
+        b=Driverdb.objects.get(mobileno=driver)
+        if i!=0:
+            b.rating=int(total/i)
+            b.save()
+        else:
+            b.rating=0
+            b.save()
         a.rating = total
         a.save()
-    y = Maintanencecost.objects.filter(type="self").order_by('rating')
+
+    y=Driverdb.objects.all().order_by('rating')
     return render(request, 'driverrating.html', {'y': y,'n':n})
 
 def removedriver(request,driverid):
-    HiringCar.objects.filter(Carid=driverid).delete()
-    HireCancelrepo.objects.filter(Carid=driverid).delete()
-    d=drivercar.objects.get(CarReg=driverid)
-    did=d.driver_id
-    drivercar.objects.filter(CarReg=driverid).delete()
-    HiredCar.objects.filter(HcarRegistration=driverid).delete()
-    Driverdb.objects.filter(mobileno=did).delete()
+    HiringCar.objects.filter(Driverid=driverid).delete()
+    HireCancelrepo.objects.filter(Driverid=driverid).delete()
+    d=drivercar.objects.get(driver_id=driverid)
+    cid=d.car_id
+    drivercar.objects.filter(driver_id=driverid).delete()
+    HiredCar.objects.filter(HcarRegistration=cid).delete()
+    Driverdb.objects.filter(mobileno=driverid).delete()
+    Maintanencecost.objects.filter(carid=cid).delete()
     return redirect('AdminHome')
 
 def selfviewbooking(request,bookid):

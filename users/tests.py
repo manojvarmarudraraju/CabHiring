@@ -155,3 +155,4 @@ class Model_testing(TestCase):
         self.assertTemplateUsed(q,'selfbook.html')
         w=self.client.post(url,{'address':"  ",'days':2,'time':13,'date':timezone.now()})
         self.assertRedirects(w,'/user/Userhome/')
+    

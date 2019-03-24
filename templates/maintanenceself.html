@@ -39,12 +39,20 @@ th {
   <tr>
     <th>Car Id</th>
     <th>Cost</th>
-	  
+      <th></th>
+      <th></th>
+      <th></th>
+
+
   </tr>
-  {% for i in q %}
+  {% for i in y %}
   <tr>
   <td>{{i.carid}}</td>
 	<td>{{i.cost}}</td>
+      <td></td>
+     <td>
+         <td><a href="{% url 'deleteselfcar' i.carid%}" style="float: right;margin-top: 5px;">remove</a></td>
+  </td>
 	</tr>
 	{% endfor %}
 	
