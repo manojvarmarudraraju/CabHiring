@@ -245,7 +245,7 @@ def selfcarrating(request,bookid):
 
 def hirecarrating(request,bookid):
     if request.method=="POST":
-        q = HiringCar.objects.filter(id=bookid)
+        q = HiringCar.objects.get(id=bookid)
         q.DriverRating=request.POST['driverrating']
         q.DriverDesc=request.POST['driverdesc']
         q.ServiceRating = request.POST['servicerat']

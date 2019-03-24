@@ -97,6 +97,8 @@ class Model_testing(TestCase):
         url = reverse('UserLogin')
         r=self.client.get(url)
         self.assertTemplateUsed(r,'loginUser.html')
+        
+
 
     def test_UserLogout_view(self):
         url = reverse('Userlogout')
@@ -211,3 +213,45 @@ class Model_testing(TestCase):
         self.assertTemplateUsed(q, 'edithirebooking.html')
         p = self.client.post(url, {'address': "  ", 'time': 4})
         self.assertRedirects(p, '/user/Hireviewbookings/')
+    def test_selfcancelbooking(self):
+        b = self.create_username()
+        self.create_user()
+        self.client.login(username="9440711733", password="my_secret")
+        self.create_selfbooking()
+        url = reverse('selfcancelbooking', args=(1,))
+        q = self.client.get(url)
+        self.assertTemplateUsed(q, 'selfcancelbooking.html')
+        p=self.client.post(url,{'reason':" "})
+        self.assertRedirects(p,'/user/Selfviewbookings/')
+    def test_hirecancelbooking(self):
+        b = self.create_username()
+        self.create_user()
+        self.client.login(username="9440711733", password="my_secret")
+        self.create_hiringcar()
+        url = reverse('hirecancelbooking', args=(1,))
+        q = self.client.get(url)
+        self.assertTemplateUsed(q, 'hirecancelbooking.html')
+        p = self.client.post(url, {'reason':"  "})
+        self.assertRedirects(p, '/user/Hireviewbookings/')
+    def test_selfcarrating(self):
+        b = self.create_username()
+        self.create_user()
+        self.client.login(username="9440711733", password="my_secret")
+        self.create_selfbooking()
+        url = reverse('selfcarrating', args=(1,))
+        q = self.client.get(url)
+        self.assertTemplateUsed(q, 'selfcarrating.html')
+        p = self.client.post(url, {'servicerat':5,'servicedesc':" ",'carrating':5,'cardesc':" "})
+        self.assertRedirects(p, '/user/Userhome/')
+    def test_hirecarrating(self):
+        b = self.create_username()
+        self.create_user()
+        self.client.login(username="9440711733", password="my_secret")
+        self.create_hiringcar()
+        url = reverse('hirecarrating', args=(1,))
+        q = self.client.get(url)
+        self.assertTemplateUsed(q, 'hirecarrating.html')
+        p = self.client.post(url, {'servicerat': 5, 'servicedesc': " ", 'driverrating': 5, 'driverdesc': " "})
+        self.assertRedirects(p, '/user/Userhome/')
+
+
