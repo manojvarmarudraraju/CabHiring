@@ -1,0 +1,71 @@
+{% include 'driverbase.html' %}
+<h3>Maintanence</h3>
+<style>
+
+    .one {
+    width: 20%;
+
+    float: left;
+}
+.two {
+
+    width: 18%;
+
+    float: left;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+
+</head>
+<body>
+
+
+<table>
+
+  <tr>
+    
+
+    <th style="height: 30px;">Date</th>
+    <th style="height: 30px;">Damage Cost</th>
+  </tr>
+ 
+
+
+
+  {% for i in s %}
+  <tr>
+
+
+  <td>{{i.Date}}</td>
+    <td>{{i.DamageCost}}</td>
+  
+  
+  </tr>
+
+
+  {% endfor %}
+
+
+    
+
+  
+  
+  
+</table>
+
+{% include 'footer.html' %} 

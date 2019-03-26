@@ -101,18 +101,18 @@ def Cartype(request):
 def sviewcars(request):
     phone = request.user.username
     n = userdb.objects.get(mobileno=phone)
-    q=SelfDriveCar.objects.filter(Status=0,Cartype="sedan")
-    w=SelfDriveCar.objects.filter(Status=0,Cartype="micro")
-    e=SelfDriveCar.objects.filter(Status=0,Cartype="hatchback")
-    r=SelfDriveCar.objects.filter(Status=0,Cartype="suv")
+    q=SelfDriveCar.objects.filter(Cartype="sedan")
+    w=SelfDriveCar.objects.filter(Cartype="micro")
+    e=SelfDriveCar.objects.filter(Cartype="hatchback")
+    r=SelfDriveCar.objects.filter(Cartype="suv")
     return render(request,'selfdrives.html',{'q':q,'w':w,'e':e,'r':r,'n':n})
 def hviewcars(request):
     phone = request.user.username
     n = userdb.objects.get(mobileno=phone)
-    q = HiredCar.objects.filter(status=0,Cartype="sedan")
-    w = HiredCar.objects.filter(status=0, Cartype="micro")
-    e = HiredCar.objects.filter(status=0, Cartype="hatchback")
-    r = HiredCar.objects.filter(status=0, Cartype="suv")
+    q = HiredCar.objects.filter(Cartype="sedan")
+    w = HiredCar.objects.filter(Cartype="micro")
+    e = HiredCar.objects.filter(Cartype="hatchback")
+    r = HiredCar.objects.filter(Cartype="suv")
     return render(request, 'hiredrives.html',{'q':q,'w':w,'e':e,'r':r,'n':n} )
 
 def sbookcar(request,carid):
@@ -165,15 +165,17 @@ def Selfviewbookings(request):
     phone = request.user.username
     n = userdb.objects.get(mobileno=phone)
     q=SelfBooking.objects.filter(Userid=phone).filter(status="upcoming")
-    w=SelfBooking.objects.filter(Userid=phone).filter(status="completed")
-    return render(request,'selfviewbookings.html',{'n':n,'q':q,'w':w})
+    w=SelfBooking.objects.filter(Userid=phone).filter(status="completed").filter(rated=0)
+    e = SelfBooking.objects.filter(Userid=phone).filter(status="completed").filter(rated=1)
+    return render(request,'selfviewbookings.html',{'n':n,'q':q,'w':w,'e':e})
 
 def Hireviewbookings(request):
     phone = request.user.username
     n = userdb.objects.get(mobileno=phone)
     q=HiringCar.objects.filter(Userid=phone).filter(status="upcoming")
-    w=HiringCar.objects.filter(Userid=phone).filter(status="completed")
-    return render(request,'hiringviewbookings.html',{'n':n,'q':q,'w':w})
+    w=HiringCar.objects.filter(Userid=phone).filter(status="completed").filter(rated=0)
+    e = HiringCar.objects.filter(Userid=phone).filter(status="completed").filter(rated=1)
+    return render(request,'hiringviewbookings.html',{'n':n,'q':q,'w':w,'e':e})
 
 def editselfbooking(request,bookid):
     if request.method=="POST":
@@ -239,7 +241,7 @@ def selfcarrating(request,bookid):
         q.CarDesc=request.POST['cardesc']
         q.rated=1
         q.save()
-        return redirect('Userhome')
+        return redirect('Selfviewbookings')
     else:
         phone = request.user.username
         n = userdb.objects.get(mobileno=phone)
@@ -255,7 +257,7 @@ def hirecarrating(request,bookid):
         q.ServiceDesc = request.POST['servicedesc']
         q.rated=1
         q.save()
-        return redirect('Userhome')
+        return redirect('Hireviewbookings')
     else:
         phone = request.user.username
         n = userdb.objects.get(mobileno=phone)

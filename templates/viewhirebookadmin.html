@@ -37,22 +37,23 @@ th {
 
 <table>
   <tr>
-    <th>First Name</th>
+    <th>DriverId</th>
     <th>Pickup Address</th>
 	  <th>Time</th>
-	  <th>Cost</th>
-    <th>Driver</th>
+	  <th>Date</th>
+    <th></th>
 
     <th></th>
   </tr>
-  {% for i in q %}
+  {% for i in hb %}
   <tr>
-    <td>{{i.firstname}}</td>
-	<td>{{i.address}}</td>
-	<td>{{i.time}}</td>
-	<td>{{i.cost}}</td>
-  <td>{{i.driver}}</td>
-	<td><a href="{% url 'hbookcar' i.HcarRegistration%}" style="float: right;margin-top: 5px;">CANCEL</a></td>
+      <td>{{i.Driverid}}</td>
+    <td>{{i.Pickup}}</td>
+	<td>{{i.Time}}</td>
+	<td>{{i.Date}}</td>
+
+  <td></td>
+	<td><a href="{% url 'cancelhire' i.id%}" style="float: right;margin-top: 5px;">CANCEL</a></td>
 	</tr>
 	{% endfor %}
 	

@@ -76,7 +76,8 @@ body {
       <div class="sidebar-heading"><h3><a href="{% url 'DriverHome' %}">CAB HIRING</a></h3> </div>
       <div class="list-group list-group-flush">
         <a href="{% url 'ViewSalaries' %}" class="list-group-item list-group-item-action bg-light">Salaries</a>
-		<a href="#" class="list-group-item list-group-item-action bg-light">Bookings</a>
+		<a href="{% url 'Driverviewbookings' %}" class="list-group-item list-group-item-action bg-light">Bookings</a>
+        <a href="{% url 'drivermaintanence' %}" class="list-group-item list-group-item-action bg-light">Maintanence</a>
       </div>
     </div>
     <!-- /#sidebar-wrapper -->

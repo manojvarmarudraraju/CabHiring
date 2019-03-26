@@ -14,6 +14,7 @@ from selfdrive.models import *
 from hiring.models import *
 from supervisor.models import *
 from users.models import *
+from hiring.models import *
 
 
 def DriverLogin(request):
@@ -68,10 +69,53 @@ def Driverlogout(request):
     logout(request)
     return redirect('DriverLogin')
 
-def maintanence(request):
+def drivermaintanence(request):
     phone = request.user.username
     n = Driverdb.objects.get(mobileno=phone)
     p=drivercar.objects.get(driver_id=phone)
-    r = Maintanencecost.objects.filter(type="hire")
+    s=HiringCar.objects.filter(Driverid=p.driver_id)
+    return render(request, 'mainatanencecost.html', { 'n': n,'s':s})
 
-    return render(request, 'test.html', { 'n': n})
+def Driverviewbookings(request):
+    phone = request.user.username
+    n = Driverdb.objects.get(mobileno=phone)
+    a=HiringCar.objects.filter(Driverid=phone).filter(status="upcoming")
+    b = HiringCar.objects.filter(Driverid=phone).filter(status="completed")
+    return render(request,'driverviewbookings.html',{'n':n,'a':a,'b':b})
+
+
+def startride(request,bookid):
+    phone = request.user.username
+    n = Driverdb.objects.get(mobileno=phone)
+    if HiringCar.objects.filter(Driverid=phone).filter(status="ongoing").exists():
+        return redirect('viewongoing')
+    else:
+        a=HiringCar.objects.get(id=bookid)
+        a.status="ongoing"
+        a.save()
+        return redirect('viewongoing')
+def endride(request,bookid):
+    if request.method=="POST":
+        phone = request.user.username
+        a = HiringCar.objects.get(id=bookid)
+        price=request.POST['price']
+        damage=request.POST['damage']
+        damagecost=request.POST['damagecost']
+        a.Damage=damage
+        a.DamageCost=damagecost
+        a.ActualPrice=price
+        a.status = "completed"
+        a.save()
+        return redirect('Driverviewbookings')
+    else:
+        phone = request.user.username
+        n = Driverdb.objects.get(mobileno=phone)
+        return render(request,'driverendride.html',{'n':n})
+
+
+def viewongoing(request):
+    phone = request.user.username
+    a=HiringCar.objects.filter(Driverid=phone).get(status="ongoing")
+    phone = request.user.username
+    n = Driverdb.objects.get(mobileno=phone)
+    return render(request,'viewongoing.html',{'q':a,'n':n})

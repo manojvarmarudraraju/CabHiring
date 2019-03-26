@@ -1,0 +1,75 @@
+{% include 'driverbase.html' %}
+<h1>Ongoing Ride</h1>
+<style>
+
+    .one {
+    width: 20%;
+
+    float: left;
+}
+.two {
+
+    width: 18%;
+
+    float: left;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+
+</head>
+<body>
+
+
+
+
+<table>
+  
+
+  <tr>
+    <td>Address</td>
+  <td><input style="border:none" class= "input1"  type="text" name="address" size="15" value={{q.Pickup}} readonly></td>
+
+  </tr>
+
+
+
+  <tr>
+    <td>Time</td>
+  <td><input style="border:none" class= "input1" type="text" name="time" size="15" value={{q.Time}} readonly></td>
+  
+  </tr>
+
+  <tr>
+    
+
+    <td><a href="{% url 'endride' q.id%}"><button class="btn" type="submit">End Ride</button></a></td>
+  </tr>
+
+
+
+
+
+
+  
+  
+  
+</table>
+
+
+
+{% include 'footer.html' %} 

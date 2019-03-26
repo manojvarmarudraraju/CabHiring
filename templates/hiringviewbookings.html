@@ -85,6 +85,16 @@ th {
 	<td>{{i.Pickup}}</td>
 	<td>{{i.ActualPrice}}</td>
 	  <td></td>
+	  <td><a href="{% url 'hirecarrating' i.id%}" style="float: right;margin-top: 5px;">rate</a></td>
+	</tr>
+	{% endfor %}
+	{% for i in e %}
+  <tr>
+    <td>{{i.Date}}</td>
+	<td>{{i.Time}}</td>
+	<td>{{i.Pickup}}</td>
+	<td>{{i.ActualPrice}}</td>
+	  <td></td>
 	  <td></td>
 	</tr>
 	{% endfor %}

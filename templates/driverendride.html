@@ -1,6 +1,6 @@
-{% include 'base.html' %}
+{% include 'driverbase.html' %}
 <style>
-select {
+select,input {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -38,14 +38,25 @@ select {
 
 
 <div class="di">
-  <form method="POST">
-    {% csrf_token %}
-    <label for="reason">Reason For Cancellation</label>
-    <select id="reason" name="reason">
-      <option value="Driver Charged Extra">Driver Charged Extra</option>
-      <option value="car is not good">car is not good</option>
-      <option value="Expected Lower price">Expected Lower price</option>
+  <form method="POST" class="form1">
+    
+        {% csrf_token %}
+
+
+         Price : <input type="number" name="price">
+
+         <label for="damage">Damage</label>
+    <select id="damage" name="damage">
+      <option value="Heavy damage">Heavy damage</option>
+      <option value="Scratches">Scratches</option>
+      <option value="Tyre patches">Tyre patches</option>
     </select>
+
+         Damage Cost :<input type="number" name="damagecost" >
+
+    
+
+    
   
     <button class="btncan" type="submit">Submit</button>
   </form>

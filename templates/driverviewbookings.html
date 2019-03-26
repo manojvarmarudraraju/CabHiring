@@ -1,4 +1,4 @@
-{% include 'base.html' %}
+{% include 'driverbase.html' %}
 <h3>Self Drive Bookings</h3>
 <style>
 
@@ -40,22 +40,18 @@ th {
     <th>Date</th>
     <th>Days</th>
 	<th>Pickup</th>
-	<th>Cost</th>
 	  <th></th>
-		<th></th>
   </tr>
   <tr>
   	
   	<h1>Upcomings</h1>
   </tr>
-  {% for i in q %}
+  {% for i in a %}
   <tr>
-    <td>{{i.bookingdate}}</td>
-	<td>{{i.Days}}</td>
-	<td>{{i.pickup}}</td>
-	<td>{{i.ActualPrice}}</td>
-	<td><a href="{% url 'selfcancelbooking' i.id%}" style="float: right;margin-top: 5px;">CANCEL</a></td>
-	<td><a href="{% url 'editselfbooking' i.id%}" style="float: right;margin-top: 5px;">EDIT</a></td>
+    <td>{{i.Date}}</td>
+	<td>{{i.Time}}</td>
+	<td>{{i.Pickup}}</td>
+	<td><a href="{% url 'startride' i.id%}" style="float: right;margin-top: 5px;">start</a></td>
 	</tr>
 	{% endfor %}
 
@@ -71,30 +67,18 @@ th {
     <th>Date</th>
     <th>Days</th>
 	<th>Pickup</th>
-	<th>Cost</th>
 	  <th></th>
 		<th></th>
   </tr>
 
 
 
-	{% for i in w %}
+	{% for i in b %}
   <tr>
     <td>{{i.bookingdate}}</td>
 	<td>{{i.Days}}</td>
 	<td>{{i.pickup}}</td>
-	<td>{{i.ActualPrice}}</td>
-	  <td></td>
-	  <td><a href="{% url 'selfcarrating' i.id%}" style="float: right;margin-top: 5px;">rate</a></td>
-	</tr>
-	{% endfor %}
-	{% for i in e %}
-  <tr>
-    <td>{{i.bookingdate}}</td>
-	<td>{{i.Days}}</td>
-	<td>{{i.pickup}}</td>
-	<td>{{i.ActualPrice}}</td>
-	  <td></td>
+	  <td>{{i.ActualPrice}}</td>
 	  <td></td>
 	</tr>
 	{% endfor %}

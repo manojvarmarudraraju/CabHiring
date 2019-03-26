@@ -33,7 +33,7 @@ def adminregister(request):
             return redirect(AdminHome)
     else:
         form1 = AdminForm()
-    return render(request, 'registerUser1.html', {'form': form1})
+    return render(request, 'registeradmin.html', {'form': form1})
 
 def adddriver(request):
     if request.method == "POST":

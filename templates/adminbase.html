@@ -78,8 +78,11 @@ body {
         <a href="#" class="list-group-item list-group-item-action bg-light">Bookings</a>
 		<a href="{% url 'IssueSalary' %}" class="list-group-item list-group-item-action bg-light">Salary</a>
 		<a href="{% url 'adddriver' %}" class="list-group-item list-group-item-action bg-light">Add Employee</a>
-		<a href="#" class="list-group-item list-group-item-action bg-light">Driver Details</a>
-		<a href="#" class="list-group-item list-group-item-action bg-light">Maintenance</a>
+		<a href="{% url 'selfbookings' %}" class="list-group-item list-group-item-action bg-light">SelfBookings</a>
+		<a href="{% url 'hirebookings' %}" class="list-group-item list-group-item-action bg-light">HireBookings</a>
+        <a href="{% url 'maintanenceself' %}" class="list-group-item list-group-item-action bg-light">SelfMaintenance</a>
+        <a href="{% url 'maintanencehire' %}" class="list-group-item list-group-item-action bg-light">HireMaintenance</a>
+        <a href="{% url 'driverratings' %}" class="list-group-item list-group-item-action bg-light">DriverRatings</a>
       </div>
     </div>
     <!-- /#sidebar-wrapper -->
