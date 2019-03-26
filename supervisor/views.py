@@ -95,9 +95,11 @@ def AdminLogin(request):
         username=request.POST['username']
         password=request.POST['password']
         user=authenticate(username=username,password=password)
-
-        login(request, user)
-        return redirect(AdminHome)
+        if user is not None:
+            login(request, user)
+            return redirect('AdminHome')
+        else:
+            return redirect('AdminLogin')
     else:
         return render(request,'Adminlogin.html')
 

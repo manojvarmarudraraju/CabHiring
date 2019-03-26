@@ -50,8 +50,11 @@ def UserLogin(request):
         username=request.POST['username']
         password=request.POST['password']
         user=authenticate(username=username,password=password)
-        login(request, user)
-        return redirect('Userhome')
+        if user is not None:
+            login(request, user)
+            return redirect('Userhome')
+        else:
+            return redirect('UserLogin')
     else:
         return render(request,'loginUser.html')
 
