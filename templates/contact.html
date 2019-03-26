@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title >Our Team</title>
+  {% load static %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  
+   
+      <style type="text/css">
+      	html {
+  background: #f5f7f8;
+  font-family: system-ui;
+  -webkit-font-smoothing: antialiased;
+  padding: 20px 0;
+}
+
+html{
+	background: linear-gradient(to right, #99ff66 0%, #99ccff 100%);
+}
+
+h1,p,span{
+
+	color:white;
+}
+
+header {
+	text-align: center;
+  width: 90%;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.band {
+  width: 90%;
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  grid-gap: 20px;
+}
+@media (min-width: 30em) {
+  .band {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 60em) {
+  .band {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.card {
+  background: #80ff80;
+  text-decoration: none;
+  color: #444;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  position: relative;
+  top: 0;
+  transition: all .1s ease-in;
+}
+.card:hover {
+  top: -2px;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+}
+.card article {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.card h1 {
+  font-size: 20px;
+  margin: 0;
+  
+}
+.card p {
+  flex: 1;
+  line-height: 1.4;
+}
+.card span {
+  font-size: 12px;
+  font-weight: bold;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  margin: 2em 0 0 0;
+}
+.card .thumb {
+  padding-bottom: 60%;
+  background-size: cover;
+  background-position: center center;
+}
+
+@media (min-width: 60em) {
+  .item-1 {
+    grid-column: 1 / span 2;
+  }
+  .item-1 h1 {
+    font-size: 24px;
+  }
+}
+
+      </style>
+
+  
+</head>
+
+<body>
+
+  <header>
+  <h1 style="align-items: center;color: grey">Our Team</h1>
+</header>
+<div class="band" style="height: 500px;">
+  
+  <div class="item-2" style="float:left;margin-left: 50px;width: 250px;height: 400px;">
+    <a href="#" class="card" style="border-style: double;border-color: white;border-radius: 25px;">
+      <img src="{% static 'prasanth2.jpg' %}" style="width: 100%;height: 220px;border-radius: 50%;">
+      <article>
+        <h1>Admin</h1>
+        <h1>Contact no:</h1>
+        <h1>8074736385</h1>
+        <span>Sai Prasanth Babu</span>
+      </article>
+    </a>
+  </div>
+  <div class="item-3" style="margin-left: 150px;width: 250px;height: 400px;">
+    <a href="#" class="card" style="border-style: double;border-color: white;border-radius: 25px;">
+      <img src="{% static 'manoj.jpg' %}" style="width: 100%;height: 220px;border-radius: 50%;">
+      <article>
+        <h1>Admin</h1>
+        <h1>Contact no:</h1>
+        <h1>8074736385</h1>
+        <span>Manoj Varma</span>
+      </article>
+    </a>
+  </div>
+  <div class="item-4" style="margin-left: 150px;width: 250px;height: 400px;">
+    <a href="#" class="card" style="border-style: double;border-color: white;border-radius: 25px;">
+      <img src="hi.jpg" style="width: 100%;height: 220px;border-radius: 50%;">
+      <article>
+        <h1>Admin</h1>
+        <h1>Contact no:</h1>
+        <h1>8074736385</h1>
+        <span>Abhilash</span>
+      </article>
+    </a>
+  </div>
+ 
+ </div>
+
+
+
+
+ <div class="band" style="height: 500px;">
+  
+  <div class="item-2" style=" margin-top:10px;float:left;margin-left: 250px;width: 250px;height: 400px;">
+    <a href="#" class="card" style="border-style: double;border-color: white;border-radius: 25px;">
+      <img src="hi.jpg" style="width: 100%;height: 220px;border-radius: 50%;">
+      <article>
+        <h1>Admin</h1>
+        <h1>Contact no:</h1>
+        <h1>8074736385</h1>
+        <span>Sai Prasanth</span>
+      </article>
+    </a>
+  </div>
+  <div class="item-3" style="margin-top:10px;margin-left: 150px;width: 250px;height: 400px;">
+    <a href="#" class="card" style="border-style: double;border-color: white;border-radius: 25px;">
+      <img src="hi.jpg" style="width: 100%;height: 220px;border-radius: 50%;">
+      <article>
+        <h1>Admin</h1>
+        <h1>Contact no:</h1>
+        <h1>8074736385</h1>
+        <span>Phaneendra</span>
+      </article>
+    </a>
+  </div>
+ 
+ 
+ </div>
+
+
+ 
+  
+  
+  
+
+</body>
+
+</html>

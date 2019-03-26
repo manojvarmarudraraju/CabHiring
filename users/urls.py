@@ -20,5 +20,6 @@ path('editselfbooking/<bookid>',views.editselfbooking,name='editselfbooking'),
 path('edithirebooking/<bookid>',views.edithirebooking,name='edithirebooking'),
 path('hirecancelbooking/<bookid>',views.hirecancelbooking,name='hirecancelbooking'),
 path('selfcarrating/<bookid>',views.selfcarrating,name='selfcarrating'),
-path('hirecarrating/<bookid>',views.hirecarrating,name='hirecarrating')
+path('hirecarrating/<bookid>',views.hirecarrating,name='hirecarrating'),
+        path('contactus/',views.contactus,name='contactus'),
         ]

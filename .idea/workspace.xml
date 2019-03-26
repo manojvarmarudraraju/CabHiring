@@ -4,22 +4,12 @@
     <list default="true" id="c11fa98c-ef18-4380-aa20-5558a895c192" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CabHiring.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/CabHiring.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hiring/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/hiring/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hiring/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/hiring/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/supervisor/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/supervisor/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/adminbase.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/adminbase.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/adminlogin.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/adminlogin.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/driverbase.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/driverbase.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/hirecancelbooking.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/hirecancelbooking.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/hirecarrating.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/hirecarrating.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/hiringviewbookings.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/hiringviewbookings.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/loginUser.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/loginUser.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/selfcancelbooking.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/selfcancelbooking.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/selfcarrating.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/selfcarrating.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/selfviewbookings.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/selfviewbookings.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/setprices.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/setprices.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/viewhirebookadmin.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/viewhirebookadmin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/driverendride.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/driverendride.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/driverviewbookings.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/driverviewbookings.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,38 +20,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="loginUser.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/loginUser.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="111" column="42" selection-start-line="111" selection-start-column="42" selection-end-line="111" selection-end-column="42" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="setprices.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/setprices.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="979">
-              <caret line="105" column="47" selection-start-line="105" selection-start-column="47" selection-end-line="105" selection-end-column="47" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/users/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="163">
-              <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="16" />
-              <folding>
-                <element signature="e#0#44#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -82,8 +41,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/templates/hiredriveselect.html" />
-        <option value="$PROJECT_DIR$/templates/DriverUpdateDetails.html" />
         <option value="$PROJECT_DIR$/templates/adminhome.py" />
         <option value="$PROJECT_DIR$/templates/ViewSalary.html" />
         <option value="$PROJECT_DIR$/templates/viewslip.html" />
@@ -99,7 +56,6 @@
         <option value="$PROJECT_DIR$/selfdrive/models.py" />
         <option value="$PROJECT_DIR$/supervisor/models.py" />
         <option value="$PROJECT_DIR$/templates/hirebook.html" />
-        <option value="$PROJECT_DIR$/users/urls.py" />
         <option value="$PROJECT_DIR$/templates/viewselfbookadmin.html" />
         <option value="$PROJECT_DIR$/supervisor/urls.py" />
         <option value="$PROJECT_DIR$/hiring/models.py" />
@@ -111,28 +67,31 @@
         <option value="$PROJECT_DIR$/users/tests.py" />
         <option value="$PROJECT_DIR$/templates/selfcancelbooking.html" />
         <option value="$PROJECT_DIR$/templates/hirecancelbooking.html" />
-        <option value="$PROJECT_DIR$/templates/base.html" />
         <option value="$PROJECT_DIR$/templates/selfcarrating.html" />
         <option value="$PROJECT_DIR$/templates/RegisterADriver.html" />
-        <option value="$PROJECT_DIR$/templates/adminbase.html" />
         <option value="$PROJECT_DIR$/templates/viewhirebookadmin.html" />
         <option value="$PROJECT_DIR$/templates/hirecarrating.html" />
-        <option value="$PROJECT_DIR$/users/views.py" />
         <option value="$PROJECT_DIR$/templates/hiringviewbookings.html" />
         <option value="$PROJECT_DIR$/templates/selfviewbookings.html" />
         <option value="$PROJECT_DIR$/templates/driverbase.html" />
-        <option value="$PROJECT_DIR$/templates/driverendride.html" />
-        <option value="$PROJECT_DIR$/templates/driverviewbookings.html" />
         <option value="$PROJECT_DIR$/hiring/urls.py" />
         <option value="$PROJECT_DIR$/templates/viewongoing.html" />
         <option value="$PROJECT_DIR$/templates/mainatanencecost.html" />
         <option value="$PROJECT_DIR$/CabHiring/urls.py" />
-        <option value="$PROJECT_DIR$/hiring/views.py" />
         <option value="$PROJECT_DIR$/templates/registeradmin.html" />
-        <option value="$PROJECT_DIR$/supervisor/views.py" />
         <option value="$PROJECT_DIR$/templates/adminlogin.html" />
         <option value="$PROJECT_DIR$/templates/loginUser.html" />
         <option value="$PROJECT_DIR$/templates/setprices.html" />
+        <option value="$PROJECT_DIR$/CabHiring/settings.py" />
+        <option value="$PROJECT_DIR$/templates/driverviewbookings.html" />
+        <option value="$PROJECT_DIR$/templates/driverendride.html" />
+        <option value="$PROJECT_DIR$/hiring/views.py" />
+        <option value="$PROJECT_DIR$/users/views.py" />
+        <option value="$PROJECT_DIR$/templates/base.html" />
+        <option value="$PROJECT_DIR$/users/urls.py" />
+        <option value="$PROJECT_DIR$/templates/contact.html" />
+        <option value="$PROJECT_DIR$/supervisor/views.py" />
+        <option value="$PROJECT_DIR$/templates/adminbase.html" />
       </list>
     </option>
   </component>
@@ -161,12 +120,7 @@
             <path>
               <item name="CabHiring" type="b2602c69:ProjectViewProjectNode" />
               <item name="CabHiring" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CabHiring" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CabHiring" type="462c0819:PsiDirectoryNode" />
-              <item name="users" type="462c0819:PsiDirectoryNode" />
+              <item name="supervisor" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -215,16 +169,15 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20627803" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5007474" side_tool="true" visible="true" weight="0.17979452" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Python Console" order="7" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.18150684" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49925262" visible="true" weight="0.17979452" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -240,20 +193,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/hiredriveselect.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="60" column="14" lean-forward="true" selection-start-line="60" selection-start-column="14" selection-end-line="60" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/updateadmin.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="675" column="50" selection-start-line="675" selection-start-column="50" selection-end-line="675" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/hiredrives.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -397,23 +336,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="81" column="41" selection-start-line="81" selection-start-column="41" selection-end-line="81" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/users/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="16" column="54" lean-forward="true" selection-start-line="16" selection-start-column="54" selection-end-line="16" selection-end-column="70" />
-          <folding>
-            <element signature="e#0#36#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/selfcarrating.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="278">
@@ -481,13 +403,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/adminbase.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="84" column="113" selection-start-line="84" selection-start-column="113" selection-end-line="84" selection-end-column="113" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/selfviewbookings.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="312">
@@ -516,24 +431,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/driverviewbookings.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-657">
-          <caret line="34" column="6" selection-start-line="34" selection-start-column="6" selection-end-line="34" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hiring/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="15" column="18" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/driverendride.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="48" column="38" lean-forward="true" selection-start-line="48" selection-start-column="38" selection-end-line="48" selection-end-column="38" />
         </state>
       </provider>
     </entry>
@@ -562,27 +463,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hiring/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-29">
-          <caret line="90" column="36" selection-start-line="90" selection-start-column="36" selection-end-line="90" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#44#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/registeradmin.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/supervisor/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="17" column="4" lean-forward="true" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -600,13 +484,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/users/views.py">
+    <entry file="file://$PROJECT_DIR$/templates/setprices.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#44#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="979">
+          <caret line="105" column="47" selection-start-line="105" selection-start-column="47" selection-end-line="105" selection-end-column="47" />
         </state>
       </provider>
     </entry>
@@ -617,10 +498,85 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/setprices.html">
+    <entry file="file://$PROJECT_DIR$/CabHiring/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="979">
-          <caret line="105" column="47" selection-start-line="105" selection-start-column="47" selection-end-line="105" selection-end-column="47" />
+        <state relative-caret-position="86">
+          <caret line="25" column="12" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/driverviewbookings.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="69" column="14" selection-start-line="69" selection-start-column="14" selection-end-line="69" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/driverendride.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="51" column="56" lean-forward="true" selection-start-line="51" selection-start-column="56" selection-end-line="51" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hiring/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="113" selection-start-line="113" selection-end-line="113" />
+          <folding>
+            <element signature="e#0#44#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/users/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="267" column="40" selection-start-line="267" selection-start-column="40" selection-end-line="267" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#44#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/contact.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2108">
+          <caret line="124" column="40" selection-start-line="124" selection-start-column="40" selection-end-line="124" selection-end-column="40" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#a#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/users/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="23" column="47" selection-start-line="23" selection-start-column="47" selection-end-line="23" selection-end-column="47" />
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="10" column="2" selection-start-line="10" selection-start-column="2" selection-end-line="10" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/supervisor/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="131">
+          <caret line="154" column="113" selection-start-line="154" selection-start-column="113" selection-end-line="154" selection-end-column="113" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/adminbase.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="79" column="105" selection-start-line="79" selection-start-column="105" selection-end-line="79" selection-end-column="105" />
         </state>
       </provider>
     </entry>

@@ -149,36 +149,18 @@ def adminupdatedetails(request):
 
 def setprices(request):
     if request.method=="POST":
-        w=SelfDriveCar.objects.all()
-        u=request.POST['selfsedanprice']
-        v=request.POST['selfmicroprice']
-        x=request.POST['selfsuvprice']
-        y=request.POST['selfhatchbackprice']
-        for i in w:
-            reg=i.CarRegistration
-            a=SelfDriveCar.objects.get(CarRegistration=reg)
-            if a.Cartype=="sedan":
-                a.ExpectedPrice= int(u)
-            elif a.Cartype=="micro":
-                a.ExpectedPrice = int(v)
-            elif a.Cartype=="hatchback":
-                a.ExpectedPrice = int(y)
-            elif a.Cartype=="suv":
-                a.ExpectedPrice = int(x)
-            a.save(['ExpectedPrice'])
-        e=HiredCar.objects.all()
-        for i in e:
-            reg=i.HcarRegistration
-            b=HiredCar.objects.get(HcarRegistration=reg)
-            if b.Cartype=="sedan":
-                b.Costperkilometer=int(request.POST['hiresedanprice'])
-            elif b.Cartype=="micro":
-                b.Costperkilometer = int(request.POST['hiremicroprice'])
-            elif b.Cartype=="hatchback":
-                b.Costperkilometer = int(request.POST['hirehatchbackprice'])
-            elif b.Cartype=="suv":
-                b.Costperkilometer = int(request.POST['hiresuvprice'])
-            b.save(['CostperKilometer'])
+        SelfDriveCar.objects.filter(Cartype="sedan").update(ExpectedPrice=request.POST['selfsedanprice'])
+        SelfDriveCar.objects.filter(Cartype="micro").update(ExpectedPrice=request.POST['selfmicroprice'])
+        SelfDriveCar.objects.filter(Cartype="suv").update(ExpectedPrice=request.POST['selfsuvprice'])
+        SelfDriveCar.objects.filter(Cartype="hatchback").update(ExpectedPrice=request.POST['selfhatchbackprice'])
+        if HiredCar.objects.filter(Cartype="sedan").exists():
+            HiredCar.objects.filter(Cartype="sedan").update(Costperkilometer=request.POST['hiresedanprice'])
+        if HiredCar.objects.filter(Cartype="micro").exists():
+            HiredCar.objects.filter(Cartype="micro").update(Costperkilometer=request.POST['hiremicroprice'])
+        if HiredCar.objects.filter(Cartype="suv").exists():
+            HiredCar.objects.filter(Cartype="suv").update(Costperkilometer=request.POST['hiresuvprice'])
+        if HiredCar.objects.filter(Cartype="hatchback").exists():
+            HiredCar.objects.filter(Cartype="hatchback").update(Costperkilometer=request.POST['hirehatchbackprice'])
         return redirect("AdminHome")
     else:
         phone = request.user.username

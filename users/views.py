@@ -263,3 +263,6 @@ def hirecarrating(request,bookid):
         n = userdb.objects.get(mobileno=phone)
         q = HiringCar.objects.filter(id=bookid)
         return render(request, 'hirecarrating.html', {'n': n, 'q': q})
+
+def contactus(request):
+    return render(request,'contact.html')

@@ -67,7 +67,7 @@ th {
     <th>Date</th>
     <th>Days</th>
 	<th>Pickup</th>
-	  <th></th>
+	  <th>Cost</th>
 		<th></th>
   </tr>
 
@@ -75,9 +75,9 @@ th {
 
 	{% for i in b %}
   <tr>
-    <td>{{i.bookingdate}}</td>
-	<td>{{i.Days}}</td>
-	<td>{{i.pickup}}</td>
+    <td>{{i.Date}}</td>
+	<td>{{i.Time}}</td>
+	<td>{{i.Pickup}}</td>
 	  <td>{{i.ActualPrice}}</td>
 	  <td></td>
 	</tr>
