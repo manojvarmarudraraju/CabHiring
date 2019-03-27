@@ -23,16 +23,25 @@ def DriverLogin(request):
         password=request.POST['password']
         user=authenticate(username=username,password=password)
         if user is not None:
-            login(request,user)
-            return redirect('DriverHome')
+            if admindb.objects.filter(mobileno=username).exists():
+                return redirect('AdminLogin')
+            elif userdb.objects.filter(mobileno=username).exists():
+                return redirect('UserLogin')
+            elif Driverdb.objects.filter(mobileno=username).exists():
+                login(request, user)
+                return redirect('DriverHome')
         else:
             return redirect('DriverLogin')
     else:
-        return render(request,'loginUser.html')
+        return render(request,'driverlogin.html')
+
+@login_required
 def Driverdetails(request):
     phone = request.user.username
     n = Driverdb.objects.get(mobileno=phone)
     return render(request,'updatedriver.html',{'n':n})
+
+@login_required
 def DriverUpdatedetails(request):
     if request.method=="POST":
         phone = request.user.username
@@ -45,30 +54,33 @@ def DriverUpdatedetails(request):
     else:
         return HttpResponse('Hello')
 
-
+@login_required
 def ViewSalaries(request):
     phone = request.user.username
     n = Driverdb.objects.get(mobileno=phone)
     q=MonthlySalary.objects.filter(Driverid=phone)
     return render(request,'salarydriver.html',{'q':q,'n':n})
 
+
+@login_required
 def viewslip(request,rownum):
     phone = request.user.username
     n = Driverdb.objects.get(mobileno=phone)
     q = MonthlySalary.objects.get(id=rownum)
     return render(request,'driversal2.html',{'q':q,'n':n})
 
-
+@login_required
 def DriverHome(request):
     phone = request.user.username
     n = Driverdb.objects.get(mobileno=phone)
     return render(request, 'driverhome.html', {'n': n})
 
-
+@login_required
 def Driverlogout(request):
     logout(request)
     return redirect('DriverLogin')
 
+@login_required
 def drivermaintanence(request):
     phone = request.user.username
     n = Driverdb.objects.get(mobileno=phone)
@@ -76,6 +88,7 @@ def drivermaintanence(request):
     s=HiringCar.objects.filter(Driverid=p.driver_id)
     return render(request, 'mainatanencecost.html', { 'n': n,'s':s})
 
+@login_required
 def Driverviewbookings(request):
     phone = request.user.username
     n = Driverdb.objects.get(mobileno=phone)
@@ -83,7 +96,7 @@ def Driverviewbookings(request):
     b = HiringCar.objects.filter(Driverid=phone).filter(status="completed")
     return render(request,'driverviewbookings.html',{'n':n,'a':a,'b':b})
 
-
+@login_required
 def startride(request,bookid):
     phone = request.user.username
     n = Driverdb.objects.get(mobileno=phone)
@@ -94,6 +107,8 @@ def startride(request,bookid):
         a.status="ongoing"
         a.save()
         return redirect('viewongoing')
+
+@login_required
 def endride(request,bookid):
     if request.method=="POST":
         phone = request.user.username
@@ -112,7 +127,7 @@ def endride(request,bookid):
         n = Driverdb.objects.get(mobileno=phone)
         return render(request,'driverendride.html',{'n':n})
 
-
+@login_required
 def viewongoing(request):
     phone = request.user.username
     a=HiringCar.objects.filter(Driverid=phone).get(status="ongoing")

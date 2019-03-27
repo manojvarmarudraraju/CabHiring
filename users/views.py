@@ -13,6 +13,7 @@ from .forms import *
 from django.contrib.sessions.backends.db import SessionStore
 from selfdrive.models import *
 from hiring.models import *
+from  supervisor.models import *
 
 def UserRegister(request):
     if request.method=='POST':
@@ -51,19 +52,27 @@ def UserLogin(request):
         password=request.POST['password']
         user=authenticate(username=username,password=password)
         if user is not None:
-            login(request, user)
-            return redirect('Userhome')
+            if admindb.objects.filter(mobileno=username).exists():
+                return redirect('AdminLogin')
+            elif userdb.objects.filter(mobileno=username).exists():
+                login(request, user)
+                return redirect('Userhome')
+            elif Driverdb.objects.filter(mobileno=username).exists():
+                return redirect('DriverLogin')
+
         else:
             return redirect('UserLogin')
     else:
         return render(request,'loginUser.html')
 
 
-
+@login_required
 def Userlogout(request):
     logout(request)
     return redirect(UserLogin)
 
+
+@login_required
 def UserDetailsView(request):
 
     phone = request.user.username
@@ -84,6 +93,8 @@ def UpdateDetails(request):
     else:
         return HttpResponse('Details Updated')
 
+
+@login_required
 def Cartype(request):
     if request.method=='POST':
         phone = request.user.username
@@ -98,6 +109,8 @@ def Cartype(request):
         n = userdb.objects.get(mobileno=phone)
         return render(request,'test.html',{'n':n})
 
+
+@login_required
 def sviewcars(request):
     phone = request.user.username
     n = userdb.objects.get(mobileno=phone)
@@ -106,6 +119,9 @@ def sviewcars(request):
     e=SelfDriveCar.objects.filter(Cartype="hatchback")
     r=SelfDriveCar.objects.filter(Cartype="suv")
     return render(request,'selfdrives.html',{'q':q,'w':w,'e':e,'r':r,'n':n})
+
+
+@login_required
 def hviewcars(request):
     phone = request.user.username
     n = userdb.objects.get(mobileno=phone)
@@ -115,6 +131,8 @@ def hviewcars(request):
     r = HiredCar.objects.filter(Cartype="suv")
     return render(request, 'hiredrives.html',{'q':q,'w':w,'e':e,'r':r,'n':n} )
 
+
+@login_required
 def sbookcar(request,carid):
     if request.method=='POST':
         phone = request.user.username
@@ -134,11 +152,15 @@ def sbookcar(request,carid):
         n = userdb.objects.get(mobileno=phone)
     return render(request,'selfbook.html',{'q':q,'n':n})
 
+
+@login_required
 def Userhome(request):
     phone = request.user.username
     n = userdb.objects.get(mobileno=phone)
     return render(request,'userhome.html',{'n':n})
 
+
+@login_required
 def hbookcar(request,registration):
     if request.method=="POST":
         phone = request.user.username
@@ -161,6 +183,7 @@ def hbookcar(request,registration):
     return render(request,'hirebook.html',{'q':q,'n':n})
 
 
+@login_required
 def Selfviewbookings(request):
     phone = request.user.username
     n = userdb.objects.get(mobileno=phone)
@@ -169,6 +192,8 @@ def Selfviewbookings(request):
     e = SelfBooking.objects.filter(Userid=phone).filter(status="completed").filter(rated=1)
     return render(request,'selfviewbookings.html',{'n':n,'q':q,'w':w,'e':e})
 
+
+@login_required
 def Hireviewbookings(request):
     phone = request.user.username
     n = userdb.objects.get(mobileno=phone)
@@ -177,6 +202,8 @@ def Hireviewbookings(request):
     e = HiringCar.objects.filter(Userid=phone).filter(status="completed").filter(rated=1)
     return render(request,'hiringviewbookings.html',{'n':n,'q':q,'w':w,'e':e})
 
+
+@login_required
 def editselfbooking(request,bookid):
     if request.method=="POST":
         q = SelfBooking.objects.get(id=bookid)
@@ -192,6 +219,8 @@ def editselfbooking(request,bookid):
         q = SelfBooking.objects.get(id=bookid)
         return render(request,'editselfbooking.html',{'n':n,'q':q})
 
+
+@login_required
 def edithirebooking(request,bookid):
     if request.method=="POST":
         q=HiringCar.objects.get(id=bookid)
@@ -205,6 +234,8 @@ def edithirebooking(request,bookid):
         n = userdb.objects.get(mobileno=phone)
         return render(request, 'edithirebooking.html', {'n': n,'q':q})
 
+
+@login_required
 def selfcancelbooking(request,bookid):
     if request.method=="POST":
         q=SelfBooking.objects.get(id=bookid)
@@ -218,6 +249,8 @@ def selfcancelbooking(request,bookid):
         q = SelfBooking.objects.filter(id=bookid)
         return render(request, 'selfcancelbooking.html', {'n': n,'q':q})
 
+
+@login_required
 def hirecancelbooking(request,bookid):
     if request.method=="POST":
         q=HiringCar.objects.get(id=bookid)
@@ -231,7 +264,7 @@ def hirecancelbooking(request,bookid):
         q = HiringCar.objects.filter(id=bookid)
         return render(request, 'hirecancelbooking.html', {'n': n,'q':q})
 
-
+@login_required
 def selfcarrating(request,bookid):
     if request.method=="POST":
         q = SelfBooking.objects.get(id=bookid)
@@ -248,6 +281,8 @@ def selfcarrating(request,bookid):
         q = SelfBooking.objects.filter(id=bookid)
         return render(request, 'selfcarrating.html', {'n': n, 'q': q})
 
+
+@login_required
 def hirecarrating(request,bookid):
     if request.method=="POST":
         q = HiringCar.objects.get(id=bookid)
@@ -264,5 +299,7 @@ def hirecarrating(request,bookid):
         q = HiringCar.objects.filter(id=bookid)
         return render(request, 'hirecarrating.html', {'n': n, 'q': q})
 
+
+@login_required
 def contactus(request):
     return render(request,'contact.html')

@@ -35,6 +35,8 @@ def adminregister(request):
         form1 = AdminForm()
     return render(request, 'registeradmin.html', {'form': form1})
 
+
+@login_required
 def adddriver(request):
     if request.method == "POST":
         form = DriverForm(request.POST)
@@ -84,7 +86,7 @@ def adddriver(request):
         form = DriverForm()
     return render(request, 'RegisterADriver.html', {'form': form})
 
-
+@login_required
 def AdminHome(request):
     phone = request.user.username
     n = admindb.objects.get(mobileno=phone)
@@ -96,15 +98,20 @@ def AdminLogin(request):
         password=request.POST['password']
         user=authenticate(username=username,password=password)
         if user is not None:
-            login(request, user)
-            return redirect('AdminHome')
+            if admindb.objects.filter(mobileno=username).exists():
+                login(request, user)
+                return redirect('AdminHome')
+            elif userdb.objects.filter(mobileno=username).exists():
+                return redirect('UserLogin')
+            elif Driverdb.objects.filter(mobileno=username).exists():
+                return redirect('DriverLogin')
         else:
             return redirect('AdminLogin')
     else:
         return render(request,'Adminlogin.html')
 
 
-
+@login_required
 def IssueSalary(request):
     if request.method=="POST":
         a=Driverdb.objects.all()
@@ -125,16 +132,19 @@ def IssueSalary(request):
         n = admindb.objects.get(mobileno=phone)
         return render(request,'salaryadmin.html',{'n':n})
 
-
+@login_required
 def Adminlogout(request):
     logout(request)
     return redirect('AdminLogin')
 
+
+@login_required
 def admindetails(request):
     phone = request.user.username
     n = admindb.objects.get(mobileno=phone)
     return render(request, 'updateadmin.html', {'n': n})
 
+@login_required
 def adminupdatedetails(request):
     if request.method=="POST":
         phone = request.user.username
@@ -147,6 +157,8 @@ def adminupdatedetails(request):
     else:
         return HttpResponse('Hello')
 
+
+@login_required
 def setprices(request):
     if request.method=="POST":
         SelfDriveCar.objects.filter(Cartype="sedan").update(ExpectedPrice=request.POST['selfsedanprice'])
@@ -168,26 +180,34 @@ def setprices(request):
         return render(request, 'setprices.html', {'n': n})
 
 
-
+@login_required
 def selfbookings(request):
     phone = request.user.username
     n = admindb.objects.get(mobileno=phone)
     sb=SelfBooking.objects.filter(status="upcoming").order_by('Userid')
     sh = SelfBooking.objects.filter(status="completed").order_by('Userid')
     return render(request,'viewselfbookadmin.html',{'n':n,'sb':sb,'sb2':sh})
+
+@login_required
 def hirebookings(request):
     phone = request.user.username
     n = admindb.objects.get(mobileno=phone)
     hb=HiringCar.objects.filter(status="upcoming").order_by('Userid')
     return render(request,'viewhirebookadmin.html',{'n':n,'hb':hb})
+
+@login_required
 def cancelself(request,bookid):
     sc=SelfBooking.objects.filter(id=bookid)
     sc.delete()
     return redirect('selfbookings')
+
+@login_required
 def cancelhire(request,bookid):
     sc=HiringCar.objects.filter(id=bookid)
     sc.delete()
     return redirect('hirebookings')
+
+@login_required
 def maintanenceself(request):
     phone = request.user.username
     n = admindb.objects.get(mobileno=phone)
@@ -204,6 +224,8 @@ def maintanenceself(request):
     y = Maintanencecost.objects.filter(type="self").order_by('cost')
     return render(request,'maintanenceself.html',{'y':y,'n':n})
 
+
+@login_required
 def maintanencehire(request):
     phone = request.user.username
     n = admindb.objects.get(mobileno=phone)
@@ -221,6 +243,7 @@ def maintanencehire(request):
     y = Maintanencecost.objects.filter(type="hire").order_by('cost')
     return render(request, 'maintanencehire.html',{'y':y,'n':n})
 
+@login_required
 def deleteselfcar(request,carid):
     SelfBooking.objects.filter(Carid=carid).delete()
     SelfCancelrepo.objects.filter(Carid=carid).delete()
@@ -229,6 +252,7 @@ def deleteselfcar(request,carid):
     Maintanencecost.objects.get(carid=carid).delete()
     return redirect('maintanenceself')
 
+@login_required
 def driverratings(request):
     phone = request.user.username
     n = admindb.objects.get(mobileno=phone)
@@ -257,6 +281,8 @@ def driverratings(request):
     y=Driverdb.objects.all().order_by('rating')
     return render(request, 'driverrating.html', {'y': y,'n':n})
 
+
+@login_required
 def removedriver(request,driverid):
     HiringCar.objects.filter(Driverid=driverid).delete()
     HireCancelrepo.objects.filter(Driverid=driverid).delete()
@@ -268,9 +294,14 @@ def removedriver(request,driverid):
     Maintanencecost.objects.filter(carid=cid).delete()
     return redirect('AdminHome')
 
+
+@login_required
 def selfviewbooking(request,bookid):
     sc = SelfBooking.objects.get(id=bookid)
     return render(request,'test.html',{'sc':sc})
+
+@login_required
 def hireviewbooking(request,bookid):
     sc = HiringCar.objects.get(id=bookid)
     return render(request,'test.html',{'sc':sc})
+

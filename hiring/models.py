@@ -32,7 +32,7 @@ class HiredCar(models.Model):
     image=models.URLField(max_length=500, blank=True, default='')
     status=models.IntegerField(default=0)
     Costperkilometer=models.IntegerField(default=0)
-
+    availability=models.CharField(default="yes",max_length=4)
 
 
 class MonthlySalary(models.Model):
