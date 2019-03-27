@@ -20,5 +20,7 @@ path('deleteselfcar/<carid>',views.deleteselfcar,name='deleteselfcar'),
 path('driverratings/',views.driverratings,name='driverratings'),
 path('removedriver/<driverid>',views.removedriver,name='removedriver'),
 path('selfviewbooking/<bookid>',views.selfviewbooking,name='selfviewbooking'),
-path('hireviewbooking/<bookid>',views.hireviewbooking,name='hireviewbooking')
+path('hireviewbooking/<bookid>',views.hireviewbooking,name='hireviewbooking'),
+path('checkavailability/',views.checkavailability,name='checkavailability'),
+path('setavailability/<carid>',views.setavailability,name='setavailability')
         ]

@@ -305,3 +305,18 @@ def hireviewbooking(request,bookid):
     sc = HiringCar.objects.get(id=bookid)
     return render(request,'test.html',{'sc':sc})
 
+@login_required
+def checkavailability(request):
+    a=HiredCar.objects.filter(availability="yes")
+    b=HiredCar.objects.filter(availability="no")
+    return render(request,'checkavailability.html',{'a':a,'b':b})
+
+@login_required
+def setavailability(request,carid):
+    a = HiredCar.objects.get(HcarRegistration=carid)
+    avai=a.availability
+    if avai=="yes":
+        HiredCar.objects.filter(HcarRegistration=carid).update(availability="no")
+    else:
+        HiredCar.objects.filter(HcarRegistration=carid).update(availability="yes")
+    return redirect('checkavailability')

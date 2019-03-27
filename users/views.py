@@ -125,10 +125,10 @@ def sviewcars(request):
 def hviewcars(request):
     phone = request.user.username
     n = userdb.objects.get(mobileno=phone)
-    q = HiredCar.objects.filter(Cartype="sedan")
-    w = HiredCar.objects.filter(Cartype="micro")
-    e = HiredCar.objects.filter(Cartype="hatchback")
-    r = HiredCar.objects.filter(Cartype="suv")
+    q = HiredCar.objects.filter(Cartype="sedan").filter(availability="yes")
+    w = HiredCar.objects.filter(Cartype="micro").filter(availability="yes")
+    e = HiredCar.objects.filter(Cartype="hatchback").filter(availability="yes")
+    r = HiredCar.objects.filter(Cartype="suv").filter(availability="yes")
     return render(request, 'hiredrives.html',{'q':q,'w':w,'e':e,'r':r,'n':n} )
 
 
